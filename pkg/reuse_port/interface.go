@@ -7,10 +7,6 @@ import (
 	"time"
 )
 
-func Available() bool {
-	return true
-}
-
 var listenConfig = net.ListenConfig{
 	Control: Control,
 }
