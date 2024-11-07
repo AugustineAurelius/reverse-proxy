@@ -1,4 +1,4 @@
-module github.com/AugustineAurelius/proxy
+module github.com/AugustineAurelius/reverse-proxy
 
 go 1.22.2
 
