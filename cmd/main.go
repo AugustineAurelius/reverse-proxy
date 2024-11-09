@@ -27,5 +27,5 @@ func main() {
 		return
 	}
 
-	listener.New().Do(protocolFlag)
+	listener.New().Do(protocolFlag, portFlag)
 }

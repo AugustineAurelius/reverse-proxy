@@ -3,6 +3,7 @@ package listener
 import (
 	"fmt"
 	"runtime"
+	"strconv"
 
 	reuseport "github.com/AugustineAurelius/reverse-proxy/pkg/reuse_port"
 	"github.com/alitto/pond/v2"
@@ -18,11 +19,10 @@ func New() *listener {
 	}
 }
 
-func (l *listener) Do(network string) {
-
+func (l *listener) Do(network string, port int) {
 	for i := 0; i < runtime.GOMAXPROCS(0); i++ {
 		l.pool.Submit(func() {
-			lis, err := reuseport.Listen(network, "localhost:8080")
+			lis, err := reuseport.Listen(network, ":"+strconv.Itoa(port))
 			if err != nil {
 				panic(err)
 			}
